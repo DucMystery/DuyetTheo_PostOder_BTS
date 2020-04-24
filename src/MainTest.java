@@ -16,6 +16,8 @@ public class MainTest {
         System.out.println("=============");
 
         tn.PreOder();
+        System.out.println("=============");
+        System.out.println(tn.search(11));
     }
 
 }

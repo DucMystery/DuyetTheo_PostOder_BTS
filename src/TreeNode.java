@@ -53,4 +53,20 @@ public class TreeNode<E extends Comparable> {
         PreOder(root);
     }
 
+
+    public E search(E data){
+        Node<E> current = root;
+
+        while (data != current.data){
+            if (data.compareTo(current.data)<0){
+                current =current.left;
+                break;
+            }else {
+                current =current.right;
+            }
+            if (current==null)return null;
+        }
+        return  current.data;
+    }
+
 }
