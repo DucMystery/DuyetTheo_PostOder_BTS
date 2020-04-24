@@ -13,6 +13,9 @@ public class MainTest {
         tn.insert(19);
 
         tn.postOder();
+        System.out.println("=============");
+
+        tn.PreOder();
     }
 
 }

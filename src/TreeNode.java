@@ -42,4 +42,15 @@ public class TreeNode<E extends Comparable> {
         System.out.println(root.data);
     }
 
+    void PreOder(Node<E> root){
+        if (root== null)return;
+        System.out.println(root.data);
+        PreOder(root.left);
+        PreOder(root.right);
+    }
+
+    public void PreOder(){
+        PreOder(root);
+    }
+
 }
