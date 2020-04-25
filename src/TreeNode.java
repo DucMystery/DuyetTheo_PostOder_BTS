@@ -60,13 +60,43 @@ public class TreeNode<E extends Comparable> {
         while (data != current.data){
             if (data.compareTo(current.data)<0){
                 current =current.left;
-                break;
             }else {
                 current =current.right;
             }
             if (current==null)return null;
         }
         return  current.data;
+    }
+
+    public Node<E> deleNode(Node<E> currentNode,E value){
+        if (currentNode ==null){
+            return currentNode;
+        }
+        if (value.compareTo(currentNode.data)>0){
+            currentNode.right = deleNode(currentNode.right,value);
+        }else if (value.compareTo(currentNode.data)<0){
+            currentNode.left = deleNode(currentNode.left,value);
+        }else {
+            if (currentNode.left==null && currentNode.right==null){
+                return null;
+            }else if (currentNode.left == null){
+                return currentNode.right;
+            }else if (currentNode.right ==null){
+                return currentNode.left;
+            }else {
+                E min = findMin(currentNode.right);
+                currentNode.data = min;
+                currentNode.right =deleNode(currentNode.right,min);
+            }
+        }
+        return currentNode;
+    }
+
+   private E findMin(Node<E> node){
+        while (node.left != null){
+            node= node.left;
+        }
+        return node.data;
     }
 
 }
